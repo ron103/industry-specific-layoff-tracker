@@ -4,7 +4,7 @@ This repository contains an end-to-end automated pipeline for scraping, storing,
 
 ---
 
-```bash
+
 ## **Features**
 1. **Reddit Data Collection**:
    - Fetches new posts from specified subreddits using the Reddit API.
@@ -33,23 +33,23 @@ This repository contains an end-to-end automated pipeline for scraping, storing,
 ---
 
 ## **Folder Structure**
-
-.
-├── static/                     # Static assets (CSS, JavaScript, images)
-├── templates/                  # HTML templates for the Flask web app
-├── app.py                      # Main Flask application
-├── chan_client.py              # Client to interact with 4chan API
-├── chan_crawler.py             # Crawler to fetch and process 4chan data
-├── cold_start_board.py         # Script to initialize 4chan crawling
-├── cold_start_subreddit.py     # Script to initialize subreddit crawling
-├── faktory_worker.py           # Faktory worker configuration
-├── reddit_client.py            # Client to interact with Reddit API
-├── reddit_crawler.py           # Crawler to fetch and process Reddit data
-├── reddit_past.py              # Experimental/legacy Reddit features
-├── requirements.txt            # Python dependencies
-├── utils.py                    # Utility functions for Flask API
-
----
+	```bash
+	.
+	├── static/                     # Static assets (CSS, JavaScript, images)
+	├── templates/                  # HTML templates for the Flask web app
+	├── app.py                      # Main Flask application
+	├── chan_client.py              # Client to interact with 4chan API
+	├── chan_crawler.py             # Crawler to fetch and process 4chan data
+	├── cold_start_board.py         # Script to initialize 4chan crawling
+	├── cold_start_subreddit.py     # Script to initialize subreddit crawling
+	├── faktory_worker.py           # Faktory worker configuration
+	├── reddit_client.py            # Client to interact with Reddit API
+	├── reddit_crawler.py           # Crawler to fetch and process Reddit data
+	├── reddit_past.py              # Experimental/legacy Reddit features
+	├── requirements.txt            # Python dependencies
+	├── utils.py                    # Utility functions for Flask API
+	
+	---
 
 ## **Setup Instructions**
 
