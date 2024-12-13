@@ -3,7 +3,7 @@
 This repository contains an end-to-end automated pipeline for scraping, storing, and analyzing user-generated content from platforms like Reddit and 4chan. The pipeline includes data collection, toxicity detection, and sentiment analysis, enabling researchers to explore online discourse and gain actionable insights.
 
 
-<img src="webpagee.JPG" width="512"/> <img src="analyses.JPG" width="512"/>
+<img src="webpagee.JPG" width="400"/> <img src="analyses.JPG" width="400"/>
 ---
 
 
