@@ -1,9 +1,9 @@
 # **Automated Data Collection and Analysis Pipeline**
 
 This repository contains an end-to-end automated pipeline for scraping, storing, and analyzing user-generated content from platforms like Reddit and 4chan. The pipeline includes data collection, toxicity detection, and sentiment analysis, enabling researchers to explore online discourse and gain actionable insights.
-![webpagee](webpagee.JPG)	![analyses](analyses.JPG)
 
-<img src="webpagee.JPG" width="128"/>
+
+<img src="webpagee.JPG" width="256"/> <img src="analyses.JPG" width="256"/>
 ---
 
 
