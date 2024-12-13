@@ -68,12 +68,12 @@ pip install -r requirements.txt
 
 Create a .env file in the root directory and add the following:
 
-REDDIT_CLIENT_ID=your_client_id
-REDDIT_CLIENT_SECRET=your_client_secret
-REDDIT_USERNAME=your_username
-REDDIT_PASSWORD=your_password
-MODERATEHATESPEECH_TOKEN=your_hatespeech_api_token
-MONGO_URI=mongodb://localhost:27017/
+	REDDIT_CLIENT_ID=your_client_id
+	REDDIT_CLIENT_SECRET=your_client_secret
+	REDDIT_USERNAME=your_username
+	REDDIT_PASSWORD=your_password
+	MODERATEHATESPEECH_TOKEN=your_hatespeech_api_token
+	MONGO_URI=mongodb://localhost:27017/
 
 4. Start MongoDB
 
@@ -188,7 +188,7 @@ Developer Notes
 app.run(debug=True, port=5001)
 
 
-	•	Monitor logs in the console.
+•	Monitor logs in the console.
 
 3. API Rate Limits
 	•	Reddit API has rate limits. Ensure adequate delays between requests to avoid bans.
@@ -208,17 +208,17 @@ Contributing
 git checkout -b feature-name
 
 
-	3.	Commit your changes:
+3.	Commit your changes:
 
 git commit -m "Add new feature"
 
 
-	4.	Push to the branch:
+4.	Push to the branch:
 
 git push origin feature-name
 
 
-	5.	Create a pull request.
+5.	Create a pull request.
 
 Acknowledgments
 	•	Reddit API Documentation
