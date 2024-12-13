@@ -1,30 +1,38 @@
-Here’s a detailed and structured README.md for your GitHub project:
-
-Automated Data Collection and Analysis Pipeline
+# **Automated Data Collection and Analysis Pipeline**
 
 This repository contains an end-to-end automated pipeline for scraping, storing, and analyzing user-generated content from platforms like Reddit and 4chan. The pipeline includes data collection, toxicity detection, and sentiment analysis, enabling researchers to explore online discourse and gain actionable insights.
 
-Features
-	1.	Reddit Data Collection:
-	•	Fetches new posts from specified subreddits using the Reddit API.
-	•	Performs toxicity analysis using the ModerateHateSpeech API.
-	•	Stores data in a MongoDB collection (reddit_posts).
-	2.	4chan Data Collection:
-	•	Crawls thread catalogs and posts from specified boards using the 4chan API.
-	•	Analyzes post content for toxicity and stores data in MongoDB (chan_posts).
-	3.	Modular Architecture:
-	•	Designed using Faktory workers for efficient and concurrent task execution.
-	•	Separate worker queues for subreddit and board crawling tasks.
-	4.	Data Storage:
-	•	MongoDB database with separate collections for Reddit and 4chan data.
-	•	Indexed storage to avoid duplicate entries.
-	5.	Toxicity Detection:
-	•	Integrates ModerateHateSpeech API to classify content as toxic or non-toxic.
-	6.	Custom Flask Dashboard:
-	•	Visualizes sentiment trends, toxicity distribution, and engagement metrics.
-	•	Allows users to filter by date ranges, subreddits, and boards.
+---
 
-Folder Structure
+```bash
+## **Features**
+1. **Reddit Data Collection**:
+   - Fetches new posts from specified subreddits using the Reddit API.
+   - Performs toxicity analysis using the ModerateHateSpeech API.
+   - Stores data in a MongoDB collection (`reddit_posts`).
+
+2. **4chan Data Collection**:
+   - Crawls thread catalogs and posts from specified boards using the 4chan API.
+   - Analyzes post content for toxicity and stores data in MongoDB (`chan_posts`).
+
+3. **Modular Architecture**:
+   - Designed using Faktory workers for efficient and concurrent task execution.
+   - Separate worker queues for subreddit and board crawling tasks.
+
+4. **Data Storage**:
+   - MongoDB database with separate collections for Reddit and 4chan data.
+   - Indexed storage to avoid duplicate entries.
+
+5. **Toxicity Detection**:
+   - Integrates ModerateHateSpeech API to classify content as toxic or non-toxic.
+
+6. **Custom Flask Dashboard**:
+   - Visualizes sentiment trends, toxicity distribution, and engagement metrics.
+   - Allows users to filter by date ranges, subreddits, and boards.
+
+---
+
+## **Folder Structure**
 
 .
 ├── static/                     # Static assets (CSS, JavaScript, images)
@@ -41,9 +49,11 @@ Folder Structure
 ├── requirements.txt            # Python dependencies
 ├── utils.py                    # Utility functions for Flask API
 
-Setup Instructions
+---
 
-1. Clone the Repository
+## **Setup Instructions**
+
+### **1. Clone the Repository**
 
 git clone https://github.com/yourusername/data-collection-pipeline.git
 cd data-collection-pipeline
@@ -178,18 +188,18 @@ Developer Notes
 app.run(debug=True, port=5001)
 
 
-•	Monitor logs in the console.
+	•	Monitor logs in the console.
 
 3. API Rate Limits
 	•	Reddit API has rate limits. Ensure adequate delays between requests to avoid bans.
 
 Future Enhancements
-	•	Sentiment Analysis Integration:
-Add NLP pipelines to compute sentiment scores for each post.
-	•	Scalability:
-Deploy on cloud platforms like AWS or GCP for large-scale crawling.
-	•	Enhanced Visualizations:
-Include more detailed metrics like time-series heatmaps and network graphs.
+	1.	Sentiment Analysis Integration:
+	•	Add NLP pipelines to compute sentiment scores for each post.
+	2.	Scalability:
+	•	Deploy on cloud platforms like AWS or GCP for large-scale crawling.
+	3.	Enhanced Visualizations:
+	•	Include more detailed metrics like time-series heatmaps and network graphs.
 
 Contributing
 	1.	Fork the repository.
@@ -198,22 +208,20 @@ Contributing
 git checkout -b feature-name
 
 
-3.	Commit your changes:
+	3.	Commit your changes:
 
 git commit -m "Add new feature"
 
 
-4.	Push to the branch:
+	4.	Push to the branch:
 
 git push origin feature-name
 
 
-5.	Create a pull request.
-
+	5.	Create a pull request.
 
 Acknowledgments
 	•	Reddit API Documentation
 	•	4chan API Documentation
 	•	ModerateHateSpeech API
 
-This README serves as a comprehensive guide for developers and users alike, offering clear instructions on setup, usage, and contribution. Let me know if you’d like additional sections or customizations!
