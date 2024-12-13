@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Layoff Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/employment.png') }}" alt="Employment Image" class="employment-image">
+            <h1>CS Layoff Tracker</h1>
+        </header>
+
+        <div class="platform-selection">
+            <button id="reddit-btn" class="platform-btn active"><i class="fab fa-reddit-alien"></i> Reddit</button>
+            <button id="4chan-btn" class="platform-btn"><i class="fa-brands fa-4chan"></i> 4chan</button>
+        </div>
+
+        <div class="date-picker">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" min="2024-11-01" max="{{ current_date }}" value="2024-11-01">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" min="2024-11-01" max="{{ current_date }}" value="{{ current_date }}">
+        </div>
+
+        <div class="selection-options">
+            <div id="subreddit-selection" class="selection-group">
+                <label>Select Subreddits:</label>
+                <div class="checkbox-group">
+                    {% for subreddit in subreddits %}
+                        <label>
+                            <input type="checkbox" class="subreddit-checkbox" value="{{ subreddit }}">
+                            {{ subreddit }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="board-selection" class="selection-group hidden">
+                <label>Select Boards:</label>
+                <div class="checkbox-group">
+                    {% for board in boards %}
+                        <label>
+                            <input type="checkbox" class="board-checkbox" value="{{ board }}">
+                            {{ board }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <button id="update-btn" class="update-btn">Update Visualizations</button>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Loading data...</p>
+        </div>
+
+        <div id="visualizations">
+            <div class="chart-container">
+                <canvas id="sentiment-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="toxicity-chart"></canvas>
+            </div>
+            <!-- Hidden for 4chan -->
+            <div class="chart-container hidden-for-4chan">
+                <canvas id="average-scores-chart"></canvas>
+            </div>
+            <div class="chart-container hidden-for-4chan">
+                <canvas id="sentiment-score-chart"></canvas>
+            </div>
+            <div class="chart-container hidden-for-4chan">
+                <canvas id="keyword-counts-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentDate = new Date().toISOString().split('T')[0];
+        document.getElementById('end-date').max = currentDate;
+
+        // Ensure end-date's min is start-date's value
+        document.getElementById('start-date').addEventListener('change', function() {
+            const startDate = this.value;
+            const endDate = document.getElementById('end-date');
+            endDate.min = startDate;
+            if (endDate.value < startDate) {
+                endDate.value = startDate;
+            }
+        });
+
+        // Platform Selection Logic
+        const redditBtn = document.getElementById('reddit-btn');
+        const chanBtn = document.getElementById('4chan-btn');
+        const hiddenFor4chanCharts = document.querySelectorAll('.hidden-for-4chan');
+
+        redditBtn.addEventListener('click', () => {
+            redditBtn.classList.add('active');
+            chanBtn.classList.remove('active');
+            hiddenFor4chanCharts.forEach(chart => chart.style.display = 'block');
+        });
+
+        chanBtn.addEventListener('click', () => {
+            chanBtn.classList.add('active');
+            redditBtn.classList.remove('active');
+            hiddenFor4chanCharts.forEach(chart => chart.style.display = 'none');
+        });
+
+        // Initialize default platform
+        redditBtn.click();
+    </script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
